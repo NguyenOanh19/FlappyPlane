@@ -6,17 +6,45 @@
 
 using namespace std;
 
+struct Move {
+    int x = start_player_x;
+    int y = start_player_y;
+    int dx = 0, dy = 0;
+
+    void position() { 
+        y += dy; 
+        if (y < 0) { y = start_player_y; }
+        if (y > WINDOW_H) { y = 0; }
+    }
+    void up() { dy = -SPEED; }
+    void down() { dy = SPEED; }
+    void reset() { dy = 0; }
+};
+
 struct Player
 {
-    vector<Object> player;
-    //int x = 0, y = 0;
-    //int dx = 0, dy = 0;
-    int frame_quantity = 12, frame = 0;
+    vector<SDL_Texture*> textures;
+    int frame = 0;
 
-    bool loadPlayer(SDL_Renderer* renderer,const char*folder);
-    void renderPlayer();
-    void tick();
-    void free();
+    void loadPlayer(const char* folder, Object& object) {
+        textures.resize(FRAME_QUANTITY);
+        for (int i = 0; i < FRAME_QUANTITY; i++)
+        {
+            string filePath = folder;
+            if (i < 10)
+                filePath += '0';
+            filePath += to_string(i) + ".png";
+            textures[i] = object.loadTexture(filePath.c_str());
+        }
+    }
+
+    void tick() {
+        frame = (frame + 1) % FRAME_QUANTITY;
+    }
+
+    void render(Object &object,const Move &move) {
+        object.renderTexture(textures[frame], move.x, move.y);
+    }
 };
 
 #endif
