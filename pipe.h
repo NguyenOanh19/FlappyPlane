@@ -9,8 +9,8 @@ struct Pipe {
 	vector<Position> pipePos;
 	SDL_Texture* up, * down;
 
-	int randMin = WINDOW_H - PIPE_DISTANCE;
-	int randMax = PIPE_H + PIPE_DISTANCE;
+	int randMin = PIPE_DISTANCE + 100;
+	int randMax = WINDOW_H - randMin;
 
 	void initPosition();
 	void render();

@@ -9,7 +9,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include <random>
+#include <cstdlib>
 
 using namespace std;
 
@@ -31,6 +31,7 @@ extern const char* HIT_SOUND;
 extern const char* POINT_SOUND;
 extern const char* BACKGROUND_MUSIC;
 extern const char* GAME_OVER_TEXT;
+extern const char* HIGH_SCORE_FILE;
 
 //player
 const int NUM_FRAMES = 3;
@@ -39,19 +40,22 @@ const int GRAVITY_SPEED = 1;
 const int PLAYER_W = 88;
 const int PLAYER_H = 73;
 const int PLAYER_X = 450;
-const int PLAYER_Y = WINDOW_H - PLAYER_H;
+const int PLAYER_Y = (WINDOW_H - PLAYER_H) / 2;
 
 //pipe 
-const int PIPE_H = 350;
+const int PIPE_H = 653;
 const int PIPE_W = 74;
 const int PIPE_DISTANCE = 200;
 const int NUM_PIPES = 5;
 
 //fps
 const int FPS = 60; // frame per second
+const int ACCEL = 5;
+const int MIN_SCROLL = 5;
+const int MAX_SCROLL = 10;
 
 //music
-const int NUM_SOUND_EFFECTS = 4;
+const int NUM_SOUND_EFFECTS = 3;
 
 //button
 const int NUM_BUTTONS = 5;
@@ -76,14 +80,14 @@ struct Position {
 
 struct GameStatus
 {
-	bool quit, gameOver, sound, paused, restarted;
+	bool quit, gameOver, sound, paused, restarted, isRunning;
 
 	GameStatus() {
-		quit = 0, gameOver = 0, sound = 1, paused = 0, restarted = 0;
+		quit = 0, gameOver = 0, sound = 1, paused = 0, restarted = 0, isRunning = 0;
 	}
 
 	void reset() {
-		quit = 0, gameOver = 0, sound = 1, paused = 0, restarted = 0;
+		quit = 0, gameOver = 0, sound = 1, paused = 0, restarted = 0, isRunning = 0;
 	}
 };
 

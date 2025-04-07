@@ -18,12 +18,14 @@ struct Game
 	Pipe pipe;
 	Music music;
 	GameControls gameControls;
-	Text gameOverText;
-
+	Text gameOverText, scoreText, highScoreText;
 	SDL_Event event;
 	GameStatus gameStatus;
-	int score = 0;
+	int score = 0, highScore = 0;
+	bool check = 0;
 
+	void saveHighScore();
+	void loadHighScore();
 	void init();
 	void handleEvents();
 	void update(int distScroll);

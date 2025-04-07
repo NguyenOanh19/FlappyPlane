@@ -4,11 +4,23 @@
 
 using namespace std;
 
+int updateScroll(const int& score) {
+	int scroll2 = 2 * ACCEL * score - pow(MIN_SCROLL, 2);
+	if (scroll2 <= 0) 
+		return MIN_SCROLL;
+	if (sqrt(scroll2) < MIN_SCROLL)
+		return MIN_SCROLL;
+	if (sqrt(scroll2) > MAX_SCROLL) 
+		return MAX_SCROLL;
+	return sqrt(scroll2);
+}
+
 int main(int argc, char* argv[])
 {
 	Game FlappyPlane;
 
 	FlappyPlane.init();
+	srand(time(0));
 
 	while (!FlappyPlane.gameStatus.quit) {
 		int realTime = SDL_GetTicks();
@@ -19,7 +31,8 @@ int main(int argc, char* argv[])
 		}
 		if (!FlappyPlane.gameStatus.gameOver && !FlappyPlane.gameStatus.paused)
 		{
-			FlappyPlane.update(5);
+			if(FlappyPlane.gameStatus.isRunning)
+				FlappyPlane.update(updateScroll(FlappyPlane.score));
 			FlappyPlane.renderAndPlayMusic();
 		}
 

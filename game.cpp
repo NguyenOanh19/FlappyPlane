@@ -1,5 +1,26 @@
 #include "game.h"
 
+void Game::saveHighScore() {
+	if (score >= highScore) {
+		highScore = score;
+		ofstream myFile(HIGH_SCORE_FILE);
+		if (myFile.is_open()) {
+			myFile << score;
+			myFile.close();
+		}
+	}
+}
+
+void Game::loadHighScore() {
+	ifstream file(HIGH_SCORE_FILE);
+	int highest;
+	if (file.is_open()) {
+		file >> highest;
+		highScore = highest;
+		file.close();
+	}
+}
+
 void Game::init()
 {
 	object.init();
@@ -7,6 +28,7 @@ void Game::init()
 	music.move = &move;
 	music.pipe = &pipe;
 	music.load();
+	music.play(music.backgroundMusic);
 
 	background.object = &object;
 	background.loadAndSetTexture(BACKGROUND_FILE);
@@ -28,6 +50,13 @@ void Game::init()
 	gameOverText.object = &object;
 	gameOverText.loadFont(FONT_FILE, 100);
 	gameOverText.loadText(GAME_OVER_TEXT);
+
+	scoreText.object = &object;
+	scoreText.loadFont(FONT_FILE, 30);
+
+	highScoreText.object = &object;
+	highScoreText.loadFont(FONT_FILE, 30);
+	loadHighScore();
 }
 
 void Game::handleEvents()
@@ -42,10 +71,11 @@ void Game::handleEvents()
 			gameStatus.quit = 1;
 			break;
 		case SDL_KEYDOWN:
+			gameStatus.isRunning = 1;
 			if (!gameStatus.gameOver && !gameStatus.paused) {
 				move.up();
-				if(gameStatus.sound)
-					music.play(music.sounds[1]);
+				if (gameStatus.sound)
+					music.play(music.sounds[0]);
 			}
 			break;
 		case SDL_KEYUP:
@@ -68,6 +98,7 @@ void Game::update(int distScroll)
 		gameStatus.gameOver = 1;
 	if (move.isPastPipe(pipe.pipePos)) {
 		score++;
+		saveHighScore();
 	}
 }
 
@@ -77,12 +108,21 @@ void Game::renderAndPlayMusic()
 	background.render();
 	plane.render();
 	pipe.render();
-	if(gameStatus.sound)
+	if (gameStatus.sound)
 		music.playMusic();
 	gameControls.render();
 	if (gameStatus.gameOver) {
-		gameOverText.renderCentered();
+		gameOverText.render((WINDOW_W - gameOverText.width) / 2, (WINDOW_H - gameOverText.height) / 2);
 	}
+
+	string scoreString = "SCORE: " + to_string(score);
+	scoreText.loadText(scoreString.c_str());
+	string highScoreString = "HIGH SCORE: " + to_string(highScore);
+	highScoreText.loadText(highScoreString.c_str());
+
+	highScoreText.render((WINDOW_W - highScoreText.width) / 2, 100);
+	scoreText.render((WINDOW_W - scoreText.width) / 2, 40);
+
 	SDL_RenderPresent(object.renderer);
 }
 
@@ -100,6 +140,8 @@ void Game::clean() {
 	pipe.destroyTexture();
 	gameControls.destroyTextures();
 	gameOverText.destroyTexture();
+	scoreText.destroyTexture();
+	highScoreText.destroyTexture();
 	music.free();
 	object.quit();
 }

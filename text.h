@@ -8,10 +8,11 @@ struct Text {
 	Object* object;
 	SDL_Texture* texture;
 	TTF_Font* font;
+	int width, height;
 
 	void loadFont(const char* file, int size);
 	void loadText(const char* text);
-	void renderCentered();
+	void render(int x, int y);
 	void destroyTexture();
 };
 

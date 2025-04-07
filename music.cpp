@@ -38,20 +38,19 @@ void Music::play(Mix_Chunk* gChunk) {
 
 void Music::load()
 {
-	sounds[0] = loadSound(DIE_SOUND);
-	sounds[1] = loadSound(FLAP_SOUND);
-	sounds[2] = loadSound(HIT_SOUND);
-	sounds[3] = loadSound(POINT_SOUND);
+	sounds[0] = loadSound(FLAP_SOUND);
+	sounds[1] = loadSound(HIT_SOUND);
+	sounds[2] = loadSound(POINT_SOUND);
 
 	backgroundMusic = loadMusic(BACKGROUND_MUSIC);
 }
 
 void Music::playMusic() {
 	if (move->checkCollision(pipe->pipePos)) {
-		play(sounds[2]);
+		play(sounds[1]);
 	}
 	if (move->isPastPipe(pipe->pipePos)) {
-		play(sounds[3]);
+		play(sounds[2]);
 		move->pipePassed = -1;
 	}
 }
