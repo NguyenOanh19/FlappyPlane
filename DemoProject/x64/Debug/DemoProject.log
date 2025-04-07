@@ -1,4 +1,5 @@
-﻿  main.cpp
-  map.cpp
+﻿  game.cpp
+  main.cpp
+  text.cpp
   Generating Code...
   DemoProject.vcxproj -> D:\Project\DemoProject\x64\Debug\DemoProject.exe

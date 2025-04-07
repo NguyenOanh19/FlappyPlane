@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_image-devel-2.8.5-VC\SDL2_image-2.8.5\include;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2-devel-2.28.5-VC\SDL2-2.28.5\include;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\include;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_image-devel-2.8.5-VC\SDL2_image-2.8.5\include;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2-devel-2.28.5-VC\SDL2-2.28.5\include;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\lib\x64;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2-devel-2.28.5-VC\SDL2-2.28.5\lib\x64;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_image-devel-2.8.5-VC\SDL2_image-2.8.5\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_mixer-devel-2.8.1-VC\SDL2_mixer-2.8.1\lib\x64;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\lib\x64;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2-devel-2.28.5-VC\SDL2-2.28.5\lib\x64;C:\Users\LAPTOP\Downloads\SDL for VS\SDL2_image-devel-2.8.5-VC\SDL2_image-2.8.5\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,18 +130,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="collidion.cpp" />
+    <ClCompile Include="control.cpp" />
     <ClCompile Include="defs.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="map.cpp" />
+    <ClCompile Include="music.cpp" />
     <ClCompile Include="object.cpp" />
+    <ClCompile Include="pipe.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="text.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="collision.h" />
+    <ClInclude Include="control.h" />
     <ClInclude Include="defs.h" />
-    <ClInclude Include="map.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="music.h" />
+    <ClInclude Include="pipe.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="object.h" />
+    <ClInclude Include="text.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

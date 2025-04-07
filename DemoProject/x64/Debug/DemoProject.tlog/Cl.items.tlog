@@ -1,5 +1,9 @@
-D:\Project\DemoProject\collidion.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\collidion.obj
+D:\Project\DemoProject\control.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\control.obj
 D:\Project\DemoProject\defs.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\defs.obj
+D:\Project\DemoProject\game.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\game.obj
 D:\Project\DemoProject\main.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\main.obj
-D:\Project\DemoProject\map.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\map.obj
+D:\Project\DemoProject\music.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\music.obj
 D:\Project\DemoProject\object.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\object.obj
+D:\Project\DemoProject\pipe.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\pipe.obj
+D:\Project\DemoProject\player.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\player.obj
+D:\Project\DemoProject\text.cpp;D:\Project\DemoProject\DemoProject\x64\Debug\text.obj
