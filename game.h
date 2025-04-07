@@ -22,7 +22,6 @@ struct Game
 	SDL_Event event;
 	GameStatus gameStatus;
 	int score = 0, highScore = 0;
-	bool check = 0;
 
 	void saveHighScore();
 	void loadHighScore();
