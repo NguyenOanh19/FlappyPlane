@@ -1,5 +1,14 @@
-﻿  main.cpp
+﻿  control.cpp
+  defs.cpp
+  game.cpp
+  main.cpp
 D:\Project\DemoProject\main.cpp(8,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 D:\Project\DemoProject\main.cpp(15,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
 D:\Project\DemoProject\main.cpp(23,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  music.cpp
+  object.cpp
+  pipe.cpp
+  player.cpp
+  text.cpp
+  Generating Code...
   DemoProject.vcxproj -> D:\Project\DemoProject\x64\Debug\DemoProject.exe

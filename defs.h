@@ -36,7 +36,7 @@ extern const char* HIGH_SCORE_FILE;
 //player
 const int NUM_FRAMES = 3;
 const int SPEED = 40;
-const int GRAVITY_SPEED = 1;
+const int GRAVITY_SPEED = 2;
 const int PLAYER_W = 88;
 const int PLAYER_H = 73;
 const int PLAYER_X = 450;
