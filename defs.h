@@ -65,14 +65,17 @@ const int BUTTON_H = 40;
 //color
 const SDL_Color TEXT_COLOR = { 93, 163, 189 , 255 };
 
-struct Position {
+struct Position
+{
 	int x, y;
 
-	Position() {
+	Position()
+	{
 		x = y = 0;
 	}
 
-	Position(int x, int y) {
+	Position(int x, int y)
+	{
 		this->x = x;
 		this->y = y;
 	}
@@ -81,12 +84,12 @@ struct Position {
 struct GameStatus
 {
 	bool quit, gameOver, sound, paused, restarted, isRunning;
-
-	GameStatus() {
+	GameStatus()
+	{
 		quit = 0, gameOver = 0, sound = 1, paused = 0, restarted = 0, isRunning = 0;
 	}
-
-	void reset() {
+	void reset()
+	{
 		quit = 0, gameOver = 0, sound = 1, paused = 0, restarted = 0, isRunning = 0;
 	}
 };

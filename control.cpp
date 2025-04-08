@@ -1,6 +1,7 @@
 #include "control.h"
 
-void GameControls::init() {
+void GameControls::init()
+{
 	buttons[exit].isRendered = 1;
 	buttons[pause].isRendered = 1;
 	buttons[sound_on].isRendered = 1;
@@ -8,7 +9,8 @@ void GameControls::init() {
 	buttons[sound_off].isRendered = 0;
 }
 
-bool GameControls::isClicked(Button button, int x_, int y_) {
+bool GameControls::isClicked(Button button, int x_, int y_)
+{
 	int x1 = button.pos.x, x2 = x1 + BUTTON_W;
 	int y1 = button.pos.y, y2 = y1 + BUTTON_H;
 
@@ -17,8 +19,10 @@ bool GameControls::isClicked(Button button, int x_, int y_) {
 	return 0;
 }
 
-void GameControls::loadButtons() {
-	for (int i = 0; i < NUM_BUTTONS; i++) {
+void GameControls::loadButtons() 
+{
+	for (int i = 0; i < NUM_BUTTONS; i++) 
+	{
 		buttons[i].texture = object->loadTexture(("img\\button\\" + path[i]).c_str());
 
 		buttons[i].pos.x = buttonPos[i].x;
@@ -26,25 +30,31 @@ void GameControls::loadButtons() {
 	}
 }
 
-void GameControls::render() {
-	for (int i = 0; i < NUM_BUTTONS; i++) {
+void GameControls::render() 
+{
+	for (int i = 0; i < NUM_BUTTONS; i++) 
+	{
 		if (buttons[i].isRendered)
 			object->renderTexture(buttons[i].texture, buttons[i].pos.x, buttons[i].pos.y);
 	}
 }
 
-void GameControls::handleToggle(int i, int j, int x_, int y_) {
-	if (buttons[i].isRendered && isClicked(buttons[i], x_, y_)) {
+void GameControls::handleToggle(int i, int j, int x_, int y_) 
+{
+	if (buttons[i].isRendered && isClicked(buttons[i], x_, y_)) 
+	{
 		buttons[i].isRendered = 0;
 		buttons[j].isRendered = 1;
 	}
-	else if (buttons[j].isRendered && isClicked(buttons[j], x_, y_)) {
+	else if (buttons[j].isRendered && isClicked(buttons[j], x_, y_)) 
+	{
 		buttons[j].isRendered = 0;
 		buttons[i].isRendered = 1;
 	}
 }
 
-void GameControls::handleEvent(int x_, int y_, GameStatus &gameStatus) {
+void GameControls::handleEvent(int x_, int y_, GameStatus &gameStatus) 
+{
 	handleToggle(sound_on, sound_off, x_, y_);
 
 	if (isClicked(buttons[exit], x_, y_))
@@ -64,8 +74,10 @@ void GameControls::handleEvent(int x_, int y_, GameStatus &gameStatus) {
 		gameStatus.sound = 0;
 }
 
-void GameControls::destroyTextures() {
-	for (int i = 0; i < NUM_BUTTONS; i++) {
+void GameControls::destroyTextures() 
+{
+	for (int i = 0; i < NUM_BUTTONS; i++) 
+	{
 		object->destroyTexture(buttons[i].texture);
 	}
 }

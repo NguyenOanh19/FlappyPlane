@@ -10,10 +10,8 @@
 #define sound_on 3
 #define exit 4
 
-const string path[NUM_BUTTONS] = { "pause.png", "restart.png", "sound_off.png",
-	"sound_on.png", "exit.png"};
-const Position buttonPos[NUM_BUTTONS] = { {100,40},{220,40}, {160,40},
-	{160,40},{40,40} };
+const string path[NUM_BUTTONS] = { "pause.png", "restart.png", "sound_off.png", "sound_on.png", "exit.png"};
+const Position buttonPos[NUM_BUTTONS] = { {100,40},{220,40}, {160,40}, {160,40},{40,40} };
 
 struct Button
 {
@@ -22,7 +20,8 @@ struct Button
 	bool isRendered;
 };
 
-struct GameControls {
+struct GameControls
+{
 	Object* object;
 	Button buttons[NUM_BUTTONS];
 

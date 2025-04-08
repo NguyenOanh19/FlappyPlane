@@ -18,7 +18,8 @@ struct Object
     void quit();
 };
 
-struct Scrolling {
+struct Scrolling
+{
     Object* object;
     SDL_Texture* texture;
     int offset = 0;

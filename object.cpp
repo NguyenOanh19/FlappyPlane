@@ -7,7 +7,8 @@ void Object::logErrorAndExit(const char* msg, const char* error)
     SDL_Quit();
 }
 
-void Object::init() {
+void Object::init() 
+{
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
         logErrorAndExit("SDL_Init", SDL_GetError());
 
@@ -27,7 +28,8 @@ void Object::init() {
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
     SDL_RenderSetLogicalSize(renderer, WINDOW_W, WINDOW_H);
 
-    if (TTF_Init() == -1) {
+    if (TTF_Init() == -1) 
+    {
         logErrorAndExit("SDL_ttf could not initialize! SDL_ttf Error: ", TTF_GetError());
     }
 
@@ -84,21 +86,25 @@ void Object::quit()
     SDL_Quit();
 }
 
-void Scrolling::loadAndSetTexture(const char* file) {
+void Scrolling::loadAndSetTexture(const char* file) 
+{
     texture = object->loadTexture(file);
     SDL_QueryTexture(texture, NULL, NULL, &width, NULL);
 }
 
-void Scrolling::scroll(int dist) {
+void Scrolling::scroll(int dist) 
+{
     offset -= dist;
     if (offset < 0) { offset = width; }
 }
 
-void Scrolling::render() {
+void Scrolling::render() 
+{
     object->renderTexture(texture, offset - width, 0);
     object->renderTexture(texture, offset, 0);
 }
 
-void Scrolling::destroyTexture() {
+void Scrolling::destroyTexture() 
+{
     object->destroyTexture(texture);
 }

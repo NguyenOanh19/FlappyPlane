@@ -1,20 +1,25 @@
 #include "game.h"
 
-void Game::saveHighScore() {
-	if (score >= highScore) {
+void Game::saveHighScore() 
+{
+	if (score >= highScore) 
+	{
 		highScore = score;
 		ofstream myFile(HIGH_SCORE_FILE);
-		if (myFile.is_open()) {
+		if (myFile.is_open()) 
+		{
 			myFile << score;
 			myFile.close();
 		}
 	}
 }
 
-void Game::loadHighScore() {
+void Game::loadHighScore() 
+{
 	ifstream file(HIGH_SCORE_FILE);
 	int highest;
-	if (file.is_open()) {
+	if (file.is_open()) 
+	{
 		file >> highest;
 		highScore = highest;
 		file.close();
@@ -72,7 +77,8 @@ void Game::handleEvents()
 			break;
 		case SDL_KEYDOWN:
 			gameStatus.isRunning = 1;
-			if (!gameStatus.gameOver && !gameStatus.paused) {
+			if (!gameStatus.gameOver && !gameStatus.paused) 
+			{
 				move.up();
 				if (gameStatus.sound)
 					music.play(music.sounds[0]);
@@ -96,7 +102,8 @@ void Game::update(int distScroll)
 	pipe.updatePosition(distScroll);
 	if (move.checkCollision(pipe.pipePos))
 		gameStatus.gameOver = 1;
-	if (move.isPastPipe(pipe.pipePos)) {
+	if (move.isPastPipe(pipe.pipePos)) 
+	{
 		score++;
 		saveHighScore();
 	}
@@ -111,7 +118,8 @@ void Game::renderAndPlayMusic()
 	if (gameStatus.sound)
 		music.playMusic();
 	gameControls.render();
-	if (gameStatus.gameOver) {
+	if (gameStatus.gameOver) 
+	{
 		gameOverText.render((WINDOW_W - gameOverText.width) / 2, (WINDOW_H - gameOverText.height) / 2);
 	}
 
@@ -126,7 +134,8 @@ void Game::renderAndPlayMusic()
 	SDL_RenderPresent(object.renderer);
 }
 
-void Game::reset() {
+void Game::reset() 
+{
 	move.init();
 	gameControls.init();
 	pipe.initPosition();
@@ -134,7 +143,8 @@ void Game::reset() {
 	score = 0;
 }
 
-void Game::clean() {
+void Game::clean() 
+{
 	background.destroyTexture();
 	plane.destroyTextures();
 	pipe.destroyTexture();
