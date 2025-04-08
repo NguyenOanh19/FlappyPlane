@@ -62,9 +62,9 @@
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Project\\DemoProject\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "D:\\Project\\DemoProject\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAARAAAAAAAAAA==",
+              "ToolTip": "D:\\Project\\DemoProject\\main.cpp*",
+              "RelativeToolTip": "main.cpp*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-30T07:45:59.797Z",
               "IsPinned": true,
@@ -80,8 +80,7 @@
               "RelativeToolTip": "text.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-08T13:28:32.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T13:28:32.42Z"
             },
             {
               "$type": "Document",

@@ -1,5 +1,4 @@
 #include "defs.h"
-#include "time.h"
 #include "game.h"
 
 using namespace std;
